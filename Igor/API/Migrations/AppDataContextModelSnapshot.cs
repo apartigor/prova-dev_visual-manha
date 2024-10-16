@@ -2,7 +2,6 @@
 using Igor.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,11 +9,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Igor.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    [Migration("20241016123513_InitialCreate")]
-    partial class InitialCreate
+    partial class AppDataContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -28,14 +25,17 @@ namespace Igor.Migrations
                     b.Property<int>("ano")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("impostoFgts")
-                        .HasColumnType("REAL");
+                    b.Property<int>("funcionarioId")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<double>("impostoInss")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("impostoFgts")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("impostoIrrf")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("impostoInss")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("impostoIrrf")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("mes")
                         .HasColumnType("INTEGER");
@@ -43,16 +43,18 @@ namespace Igor.Migrations
                     b.Property<int>("quantidade")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("salarioBruto")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("salarioBruto")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("salarioLiquido")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("salarioLiquido")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("valor")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("valor")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("folhaId");
+
+                    b.HasIndex("funcionarioId");
 
                     b.ToTable("Folhas");
                 });
@@ -66,28 +68,23 @@ namespace Igor.Migrations
                     b.Property<string>("cpf")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("folhaId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("nome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("funcionarioId");
 
-                    b.HasIndex("folhaId");
-
                     b.ToTable("Funcionarios");
                 });
 
-            modelBuilder.Entity("Igor.Models.Funcionario", b =>
+            modelBuilder.Entity("Igor.Models.Folha", b =>
                 {
-                    b.HasOne("Igor.Models.Folha", "Folha")
+                    b.HasOne("Igor.Models.Funcionario", "Funcionario")
                         .WithMany()
-                        .HasForeignKey("folhaId")
+                        .HasForeignKey("funcionarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Folha");
+                    b.Navigation("Funcionario");
                 });
 #pragma warning restore 612, 618
         }

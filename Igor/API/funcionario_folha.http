@@ -1,0 +1,44 @@
+@base_url = http://localhost:5123
+
+# FUNCIONÁRIO ######################################
+
+### Teste da API
+GET http://localhost:5123
+
+### Criação de um novo funcionário
+POST http://localhost:5123/api/funcionario/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Igor Dois",
+    "cpf" : "824.458.122-55"
+}
+
+### Obtenção de todos os funcionários
+GET http://localhost:5123/api/funcionario/listar
+
+# FOLHA ############################################
+
+### Criação de uma nova folha
+POST http://localhost:5123/api/folha/cadastrar
+Content-Type: application/json
+
+{
+    "valor": 14.5,
+    "quantidade" : 200,
+    "mes" : 5, 
+    "ano" : 2023,
+    "funcionarioId" : 3
+}
+
+### Obtenção de todas as folhas
+GET http://localhost:5123/api/folha/listar
+
+### Obtenção de uma folha
+GET http://localhost:5123/api/folha/buscar/213.543.764-50/2/2023
+
+### Deletar Folha
+DELETE http://localhost:5123/api/folha/deletar/3
+### Deletar Funcionario
+DELETE http://localhost:5123/api/funcionario/deletar/
+

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Igor.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    [Migration("20241016124245_UpdateForeignKeys")]
-    partial class UpdateForeignKeys
+    [Migration("20241016133602_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,14 +31,14 @@ namespace Igor.Migrations
                     b.Property<int>("funcionarioId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("impostoFgts")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("impostoFgts")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("impostoInss")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("impostoInss")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("impostoIrrf")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("impostoIrrf")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("mes")
                         .HasColumnType("INTEGER");
@@ -46,14 +46,14 @@ namespace Igor.Migrations
                     b.Property<int>("quantidade")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("salarioBruto")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("salarioBruto")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("salarioLiquido")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("salarioLiquido")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("valor")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("valor")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("folhaId");
 
