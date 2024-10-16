@@ -2,7 +2,7 @@
 
 # FUNCIONÁRIO ######################################
 
-### Teste
+### Teste da API
 GET http://localhost:5123
 
 ### Criação de um novo funcionário
@@ -10,8 +10,8 @@ POST http://localhost:5123/funcionario/cadastrar
 Content-Type: application/json
 
 {
-    "nome": "Seu nome",
-    "cpf" : "12345678912"
+    "nome": "Pedro Santos",
+    "cpf" : "213.543.764-50"
 }
 
 ### Obtenção de todos os funcionários
@@ -26,7 +26,7 @@ Content-Type: application/json
 {
     "valor": 50,
     "quantidade" : 1000,
-    "mes" : 10,
+    "mes" : 10, 
     "ano" : 2023,
     "funcionarioId" : 1
 }
