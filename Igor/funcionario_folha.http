@@ -1,9 +1,12 @@
-@base_url = http://localhost:PORTA/api
+@base_url = http://localhost:5123
 
 # FUNCIONÁRIO ######################################
 
+### Teste
+GET http://localhost:5123
+
 ### Criação de um novo funcionário
-POST {{base_url}}/funcionario/cadastrar
+POST http://localhost:5123/funcionario/cadastrar
 Content-Type: application/json
 
 {
@@ -12,12 +15,12 @@ Content-Type: application/json
 }
 
 ### Obtenção de todos os funcionários
-GET {{base_url}}/funcionario/listar
+GET http://localhost:5123/funcionario/listar
 
 # FOLHA ############################################
 
 ### Criação de uma nova folha
-POST {{base_url}}/folha/cadastrar
+POST http://localhost:5123/folha/cadastrar
 Content-Type: application/json
 
 {
@@ -29,7 +32,7 @@ Content-Type: application/json
 }
 
 ### Obtenção de todas as folhas
-GET {{base_url}}/folha/listar
+GET http://localhost:5123/folha/listar
 
 ### Obtenção de uma folha
-GET {{base_url}}/folha/buscar/12345678912/10/2023
+GET http://localhost:5123/folha/buscar/12345678912/10/2023
